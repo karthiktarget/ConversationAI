@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# Gradle
+.gradle/
+build/
+out/
+
+# IntelliJ
+.idea/
+*.iml
+
+# Logs
+*.log
+
+# OS
+Thumbs.db
