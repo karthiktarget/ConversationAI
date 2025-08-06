@@ -9,7 +9,8 @@ out/
 # IntelliJ
 .idea/
 *.iml
-
+*.yml
+*.properties
 # Logs
 *.log
 
