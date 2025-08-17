@@ -39,8 +39,6 @@ public class ChatService {
         m.setSender(ChatMessage.Sender.USER);
         m.setMessage(text);
         ChatMessage saved = messageRepo.save(m);
-        // touch session.updatedAt
-        s.setUpdatedAt(s.getUpdatedAt()); // @PreUpdate triggers on save
         sessionRepo.save(s);
         return saved;
     }
@@ -58,5 +56,7 @@ public class ChatService {
         return saved;
     }
 
-    public Optional<ChatSession> getSession(Long id) { return sessionRepo.findById(id); }
+    public Optional<ChatSession> getSession(Long id) {
+        return sessionRepo.findById(id);
+    }
 }

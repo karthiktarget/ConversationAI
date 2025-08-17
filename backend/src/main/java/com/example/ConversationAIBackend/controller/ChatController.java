@@ -5,6 +5,7 @@ import com.example.ConversationAIBackend.dto.ChatResponse;
 import com.example.ConversationAIBackend.entity.ChatMessage;
 import com.example.ConversationAIBackend.entity.ChatSession;
 import com.example.ConversationAIBackend.service.ChatService;
+import com.example.ConversationAIBackend.service.LLMService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -12,9 +13,11 @@ import org.springframework.web.bind.annotation.*;
 public class ChatController {
 
     private final ChatService chatService;
+    private final LLMService llmService;
 
-    public ChatController(ChatService chatService) {
+    public ChatController(ChatService chatService, LLMService llmService) {
         this.chatService = chatService;
+        this.llmService = llmService;
     }
 
     @PostMapping
@@ -30,8 +33,8 @@ public class ChatController {
         // Save user message
         ChatMessage userMsg = chatService.addUserMessage(conversationId, request.getMessage());
 
-        // TODO: Replace this with AI/NLP integration
-        String aiReply = "You said: " + request.getMessage();
+        // Call LLM for AI response
+        String aiReply = llmService.getAnswerFromLLM(request.getMessage());
 
         // Save AI reply
         chatService.addAiMessage(conversationId, aiReply, null);
