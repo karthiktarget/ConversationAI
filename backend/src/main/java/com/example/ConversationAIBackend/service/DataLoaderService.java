@@ -22,7 +22,7 @@ public class DataLoaderService implements CommandLineRunner {
     @Autowired private OrderRepository orderRepo;
     @Autowired private OrderItemRepository orderItemRepo;
 
-    private static final String DATA_PATH = "src/main/resources/data/";
+    private static final String DATA_PATH = "C:\\Users\\HP\\OneDrive\\Documents\\Projects\\ConversationalAI\\backend\\src\\main\\resources\\data\\";
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     @Override
