@@ -1,7 +1,7 @@
 package com.example.ConversationAIBackend.service;
 
 
-import com.example.ConversationAIBackend.model.*;
+import com.example.ConversationAIBackend.entity.*;
 import com.example.ConversationAIBackend.repository.*;
 import com.opencsv.CSVReader;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.example.ConversationAIBackend.model;
+package com.example.ConversationAIBackend.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
