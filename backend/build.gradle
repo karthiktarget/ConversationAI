@@ -26,7 +26,7 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	annotationProcessor 'org.projectlombok:lombok'
-	implementation 'com.opencsv:opencsv:5.7.1'
+    implementation 'com.opencsv:opencsv:5.9'
 }
 
 tasks.named('test') {

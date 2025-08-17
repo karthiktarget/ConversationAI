@@ -1,29 +1,36 @@
 package com.example.ConversationAIBackend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
-@Data
 @Entity
 @Table(name = "order_items")
+@Data
 public class OrderItem {
     @Id
     private Long id;
 
-    private Long orderId;
-    private Long userId;
-    private Long productId;
-    private Long inventoryItemId;
-    private String status;
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private Order order;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
+
+    @ManyToOne
+    @JoinColumn(name = "inventory_item_id")
+    private InventoryItem inventoryItem;
+
+    private String status;
     private LocalDateTime createdAt;
     private LocalDateTime shippedAt;
     private LocalDateTime deliveredAt;
     private LocalDateTime returnedAt;
-
 }
-

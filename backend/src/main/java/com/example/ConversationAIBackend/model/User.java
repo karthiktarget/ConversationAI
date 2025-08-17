@@ -1,17 +1,14 @@
 package com.example.ConversationAIBackend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
-@Data
 @Entity
 @Table(name = "users")
+@Data
 public class User {
-
     @Id
     private Long id;
 
@@ -30,4 +27,3 @@ public class User {
     private String trafficSource;
     private LocalDateTime createdAt;
 }
-

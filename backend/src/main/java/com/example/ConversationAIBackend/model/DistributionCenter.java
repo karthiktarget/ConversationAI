@@ -1,13 +1,11 @@
 package com.example.ConversationAIBackend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
-@Data
 @Entity
 @Table(name = "distribution_centers")
+@Data
 public class DistributionCenter {
     @Id
     private Long id;
@@ -16,4 +14,3 @@ public class DistributionCenter {
     private Double latitude;
     private Double longitude;
 }
-

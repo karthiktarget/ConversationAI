@@ -3,9 +3,9 @@ package com.example.ConversationAIBackend.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
-@Data
 @Entity
 @Table(name = "products")
+@Data
 public class Product {
     @Id
     private Long id;
@@ -22,4 +22,3 @@ public class Product {
     @JoinColumn(name = "distribution_center_id")
     private DistributionCenter distributionCenter;
 }
-
