@@ -3,7 +3,6 @@ package com.example.ConversationAIBackend.entity;
 import jakarta.persistence.*;
 
 import java.time.Instant;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,12 +29,14 @@ public class ChatSession {
 
     @PrePersist
     public void onCreate() {
-        createdAt = Instant.from(LocalDateTime.now());
+        createdAt = Instant.now();
         updatedAt = createdAt;
     }
 
     @PreUpdate
-    public void onUpdate() { updatedAt = Instant.from(LocalDateTime.now()); }
+    public void onUpdate() {
+        updatedAt = Instant.now();
+    }
 
     // Getters & Setters
     public Long getId() { return id; }

@@ -3,7 +3,6 @@ package com.example.ConversationAIBackend.entity;
 import jakarta.persistence.*;
 
 import java.time.Instant;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "chat_messages")
@@ -32,7 +31,9 @@ public class ChatMessage {
     private Instant createdAt;
 
     @PrePersist
-    public void onCreate() { createdAt = Instant.from(LocalDateTime.now()); }
+    public void onCreate() {
+        createdAt = Instant.now();
+    }
 
     public enum Sender { USER, AI }
 
