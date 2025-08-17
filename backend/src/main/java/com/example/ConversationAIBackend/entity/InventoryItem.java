@@ -3,6 +3,7 @@ package com.example.ConversationAIBackend.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 
 @Entity
@@ -16,8 +17,8 @@ public class InventoryItem {
     @JoinColumn(name = "product_id")
     private Product product;
 
-    private LocalDateTime createdAt;
-    private LocalDateTime soldAt;
+    private Instant createdAt;
+    private Instant soldAt;
     private Double cost;
 
     private String productCategory;

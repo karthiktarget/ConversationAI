@@ -9,7 +9,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.boot.CommandLineRunner;
 
 import java.io.FileReader;
-import java.time.LocalDateTime;
+import java.time.Instant;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 
 @Component
@@ -24,6 +25,7 @@ public class DataLoaderService implements CommandLineRunner {
 
     private static final String DATA_PATH = "C:\\Users\\HP\\OneDrive\\Documents\\Projects\\ConversationalAI\\backend\\src\\main\\resources\\data\\";
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
 
     @Override
     public void run(String... args) throws Exception {
@@ -183,7 +185,10 @@ public class DataLoaderService implements CommandLineRunner {
         }
     }
 
-    private LocalDateTime parseDate(String value) {
-        return (value == null || value.isEmpty()) ? null : LocalDateTime.parse(value, formatter);
+    private Instant parseDate(String dateStr) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+                .withZone(ZoneOffset.UTC); // Always interpret as UTC
+        return Instant.from(formatter.parse(dateStr));
     }
+
 }

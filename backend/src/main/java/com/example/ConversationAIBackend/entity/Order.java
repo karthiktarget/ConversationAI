@@ -3,6 +3,7 @@ package com.example.ConversationAIBackend.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 
 @Entity
@@ -18,9 +19,9 @@ public class Order {
 
     private String status;
     private String gender;
-    private LocalDateTime createdAt;
-    private LocalDateTime returnedAt;
-    private LocalDateTime shippedAt;
-    private LocalDateTime deliveredAt;
+    private Instant createdAt;;
+    private Instant returnedAt;
+    private Instant shippedAt;
+    private Instant deliveredAt;
     private Integer numOfItem;
 }

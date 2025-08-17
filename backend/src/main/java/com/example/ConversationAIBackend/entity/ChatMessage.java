@@ -1,6 +1,8 @@
 package com.example.ConversationAIBackend.entity;
 
 import jakarta.persistence.*;
+
+import java.time.Instant;
 import java.time.LocalDateTime;
 
 @Entity
@@ -27,10 +29,10 @@ public class ChatMessage {
     @Column(columnDefinition = "text")
     private String metadataJson;
 
-    private LocalDateTime createdAt;
+    private Instant createdAt;
 
     @PrePersist
-    public void onCreate() { createdAt = LocalDateTime.now(); }
+    public void onCreate() { createdAt = Instant.from(LocalDateTime.now()); }
 
     public enum Sender { USER, AI }
 
@@ -50,6 +52,6 @@ public class ChatMessage {
     public String getMetadataJson() { return metadataJson; }
     public void setMetadataJson(String metadataJson) { this.metadataJson = metadataJson; }
 
-    public LocalDateTime getCreatedAt() { return createdAt; }
-    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+    public Instant getCreatedAt() { return createdAt; }
+    public void setCreatedAt(Instant createdAt) { this.createdAt = createdAt; }
 }

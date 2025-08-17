@@ -1,6 +1,8 @@
 package com.example.ConversationAIBackend.entity;
 
 import jakarta.persistence.*;
+
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +21,8 @@ public class ChatSession {
     private User user;
 
     private String title;                     // optional (can auto-derive later)
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+    private Instant createdAt;
+    private Instant updatedAt;
 
     @OneToMany(mappedBy = "session", cascade = CascadeType.ALL, orphanRemoval = true)
     @OrderBy("createdAt ASC, id ASC")
@@ -28,12 +30,12 @@ public class ChatSession {
 
     @PrePersist
     public void onCreate() {
-        createdAt = LocalDateTime.now();
+        createdAt = Instant.from(LocalDateTime.now());
         updatedAt = createdAt;
     }
 
     @PreUpdate
-    public void onUpdate() { updatedAt = LocalDateTime.now(); }
+    public void onUpdate() { updatedAt = Instant.from(LocalDateTime.now()); }
 
     // Getters & Setters
     public Long getId() { return id; }
@@ -45,11 +47,11 @@ public class ChatSession {
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }
 
-    public LocalDateTime getCreatedAt() { return createdAt; }
-    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+    public Instant getCreatedAt() { return createdAt; }
+    public void setCreatedAt(Instant createdAt) { this.createdAt = createdAt; }
 
-    public LocalDateTime getUpdatedAt() { return updatedAt; }
-    public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
+    public Instant getUpdatedAt() { return updatedAt; }
+    public void setUpdatedAt(Instant updatedAt) { this.updatedAt = updatedAt; }
 
     public List<ChatMessage> getMessages() { return messages; }
     public void setMessages(List<ChatMessage> messages) { this.messages = messages; }

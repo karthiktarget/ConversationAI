@@ -3,6 +3,7 @@ package com.example.ConversationAIBackend.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 
 @Entity
@@ -25,5 +26,5 @@ public class User {
     private Double latitude;
     private Double longitude;
     private String trafficSource;
-    private LocalDateTime createdAt;
+    private Instant createdAt;
 }

@@ -3,6 +3,7 @@ package com.example.ConversationAIBackend.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 
 @Entity
@@ -29,8 +30,8 @@ public class OrderItem {
     private InventoryItem inventoryItem;
 
     private String status;
-    private LocalDateTime createdAt;
-    private LocalDateTime shippedAt;
-    private LocalDateTime deliveredAt;
-    private LocalDateTime returnedAt;
+    private Instant createdAt;
+    private Instant shippedAt;
+    private Instant deliveredAt;
+    private Instant returnedAt;
 }

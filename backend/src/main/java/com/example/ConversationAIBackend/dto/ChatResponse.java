@@ -1,5 +1,6 @@
 package com.example.ConversationAIBackend.dto;
 
+
 public class ChatResponse {
     private Long conversationId;
     private String answer;
